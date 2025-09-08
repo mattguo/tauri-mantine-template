@@ -6,18 +6,18 @@ import {
   Stack,
   Text,
   TextInput,
-} from '@mantine/core';
-import { IconCheck, IconInfoCircle, IconSend } from '@tabler/icons-react';
-import { invoke } from '@tauri-apps/api/core';
-import { useState } from 'react';
+} from "@mantine/core";
+import { IconCheck, IconInfoCircle, IconSend } from "@tabler/icons-react";
+import { invoke } from "@tauri-apps/api/core";
+import { useState } from "react";
 
 interface WelcomeSectionProps {
   className?: string;
 }
 
-function WelcomeSection({ className = '' }: WelcomeSectionProps) {
-  const [greetMsg, setGreetMsg] = useState('');
-  const [name, setName] = useState('');
+function WelcomeSection({ className = "" }: WelcomeSectionProps) {
+  const [greetMsg, setGreetMsg] = useState("");
+  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function greet() {
@@ -26,10 +26,10 @@ function WelcomeSection({ className = '' }: WelcomeSectionProps) {
     setLoading(true);
     try {
       // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-      const message = await invoke('greet', { name });
+      const message = await invoke("greet", { name });
       setGreetMsg(message as string);
     } catch {
-      setGreetMsg('Error: Failed to greet');
+      setGreetMsg("Error: Failed to greet");
     } finally {
       setLoading(false);
     }
@@ -48,7 +48,7 @@ function WelcomeSection({ className = '' }: WelcomeSectionProps) {
         </Alert>
 
         <form
-          onSubmit={e => {
+          onSubmit={(e) => {
             e.preventDefault();
             greet();
           }}
@@ -58,7 +58,7 @@ function WelcomeSection({ className = '' }: WelcomeSectionProps) {
               label="Your Name"
               placeholder="Enter a name..."
               value={name}
-              onChange={e => setName(e.currentTarget.value)}
+              onChange={(e) => setName(e.currentTarget.value)}
               required
               disabled={loading}
             />
@@ -70,7 +70,7 @@ function WelcomeSection({ className = '' }: WelcomeSectionProps) {
                 loading={loading}
                 disabled={!name.trim()}
               >
-                {loading ? 'Greeting...' : 'Greet'}
+                {loading ? "Greeting..." : "Greet"}
               </Button>
             </Group>
           </Stack>

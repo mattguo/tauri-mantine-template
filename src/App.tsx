@@ -1,6 +1,6 @@
-import { AppShell, Container, Group, Stack, Text, Title } from '@mantine/core';
-import { IconBrandReact, IconBrandVite } from '@tabler/icons-react';
-import WelcomeSection from './components/WelcomeSection';
+import { AppShell, Container, Group, Stack, Text, Title } from "@mantine/core";
+import { IconBrandReact, IconBrandVite } from "@tabler/icons-react";
+import WelcomeSection from "./components/WelcomeSection";
 
 function App() {
   return (
